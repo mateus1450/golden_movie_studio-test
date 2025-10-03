@@ -23,3 +23,12 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('preencherCadastro', (nome, sobrenome, email, telefone, senha) => {
+    cy.wait(2000).get('#signup-firstname').type(nome)
+    cy.wait(2000).get('#signup-lastname').type(sobrenome)
+    cy.wait(2000).get('#signup-email').type(email)
+    cy.wait(2000).get('#signup-phone').type(telefone)
+    cy.wait(2000).get('#signup-password').type(senha)
+    cy.wait(2000).get('#signup-button').click()
+})
